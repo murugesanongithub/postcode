@@ -8,6 +8,9 @@ import com.htc.country.service.entities.Suburbs;
 
 public interface PostCodeRepository extends JpaRepository <Suburbs, String> {
 
+	/*
+	 * Repository method to fetch  the records based on postcode from the database
+	 */
 	public List<Suburbs> findBypostcode(String postcode);
 	
 	
