@@ -16,7 +16,9 @@ public class PostCodeService {
 	@Autowired
 	private PostCodeRepository postcodeRepository;
 	
-	
+	/*
+	 * Service method to fetch all the records from the database
+	 */
 	public List<Suburbs> all() {
 		List<Suburbs> countries = new ArrayList<>();
 		postcodeRepository.findAll().forEach(countries::add);
@@ -24,18 +26,25 @@ public class PostCodeService {
 		return countries;
 	}
 	
-	
+	/*
+	 * Service method to fetch  the records based on postcode from the database
+	 */
 	public List<Suburbs> get(String postcode) {
 		return postcodeRepository.findBypostcode(postcode);
 	}	
 	
+	/*
+	 * Service method to insert list of records into the database
+	 */
 	public List<Suburbs> save(List<Suburbs> entity) {
 		return postcodeRepository.saveAll(entity);
 		
 	}
-	
-	public boolean delete(String country) {
-		postcodeRepository.deleteById(country);
+	/*
+	 * Service method to delete  the records based on postcode from the database
+	 */
+	public boolean delete(String postcode) {
+		postcodeRepository.deleteById(postcode);
 		
 		return true;
 	}
