@@ -15,17 +15,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class PostCodeServiceApsplication {
 
-	// This is for demo 
 	public static  void main(String[] args) {
 		SpringApplication.run(PostCodeServiceApsplication.class, args);
-		//
 		
-		/*
-		 * this for adding two numbers
-		 */
-		int a = 10;
-		int b = 20;
-		int c = a + b ;
 	}
 
 }
