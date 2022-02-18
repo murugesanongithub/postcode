@@ -15,13 +15,21 @@ import org.springframework.core.env.Environment;
 
 import com.htc.country.service.entities.Suburbs;
 import com.htc.country.service.services.PostCodeService;
-
+/*
+ * PostCodeController is REST API based controller class to get list of 
+ * records and insert new records in to the database
+ * 
+ */
 @RestController
 public class PostCodeController {
 	
-
+	/* 
+	 * This is PostCodeService to fetch the records from repository
+	 * 
+	 */
 	@Autowired
 	private PostCodeService postcodeService;
+	
 	/* 
 	 * get all the records by hiting http://localhost:8080/ 
 	 * 	in the browser
@@ -30,6 +38,7 @@ public class PostCodeController {
 	public List<Suburbs> getAll() {
 		return postcodeService.all();
 	}
+	
 	/* 
 	 * Fetching Suburbs list  based on postcode  by hiting the URL http://localhost:8080/postcode 
 	 * 	in the browser
@@ -45,6 +54,7 @@ public class PostCodeController {
 	 * insert list of new records by hitting the URL http://localhost:8080/addNewRecord
 	 * in the browser
 	 */
+	
 	@RequestMapping(value="/addrecord", method=RequestMethod.POST)
 		public List<Suburbs> addNewRecord(@RequestBody List<Suburbs> newRecord){
 		return postcodeService.save(newRecord);
