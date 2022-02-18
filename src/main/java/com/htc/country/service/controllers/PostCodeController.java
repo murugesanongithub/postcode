@@ -19,7 +19,8 @@ import com.htc.country.service.entities.Suburbs;
 import com.htc.country.service.services.PostCodeService;
 /*
  * PostCodeController is REST API based controller class to get list of 
- * records and insert new records in to the database
+ * records and insert new records in to the database\
+ * This Microservice using H2 database
  * 
  */
 @RestController
