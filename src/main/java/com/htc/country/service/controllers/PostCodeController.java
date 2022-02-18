@@ -1,7 +1,9 @@
 package com.htc.country.service.controllers;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -42,12 +44,15 @@ public class PostCodeController {
 	/* 
 	 * Fetching Suburbs list  based on postcode  by hiting the URL http://localhost:8080/postcode 
 	 * 	in the browser
+	 * return result list will be in Sorted by Alphabetically
 	 */
 	
 	@GetMapping("/{postcode}")
 	public List<Suburbs> getSuburbs(@PathVariable String postcode) {
-		List<Suburbs>  countryEnitity = postcodeService.get(postcode);
-		return countryEnitity;			
+		List<Suburbs>  suburbsList = postcodeService.get(postcode);
+		List<Suburbs> suburbsSorted = suburbsList.stream().sorted(
+                Comparator.comparing(n->n.toString())).collect(Collectors.toList());
+		return suburbsSorted;			
 	}
 	
 	/* 
